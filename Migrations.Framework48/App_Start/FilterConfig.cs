@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿using Migrations.Framework48.Filters;
 using System.Web.Mvc;
 
 namespace Migrations.Framework48
@@ -7,7 +7,10 @@ namespace Migrations.Framework48
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new FancyExceptionFilter());
+            filters.Add(new FancyAuthenticationFilter());
+            filters.Add(new FancyAuthorizationFilter());
+            filters.Add(new FancyActionFilter());
         }
     }
 }

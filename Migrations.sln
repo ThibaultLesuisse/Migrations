@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations.Framework48", "Migrations.Framework48\Migrations.Framework48.csproj", "{AF50FF0E-5C11-470F-9B1E-F9C7CEB122FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations.Framework48.Domain", "Migrations.Framework48.Domain\Migrations.Framework48.Domain.csproj", "{33AE2B8D-8876-4090-94EE-12AE41C6797D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AF50FF0E-5C11-470F-9B1E-F9C7CEB122FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF50FF0E-5C11-470F-9B1E-F9C7CEB122FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF50FF0E-5C11-470F-9B1E-F9C7CEB122FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33AE2B8D-8876-4090-94EE-12AE41C6797D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33AE2B8D-8876-4090-94EE-12AE41C6797D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33AE2B8D-8876-4090-94EE-12AE41C6797D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33AE2B8D-8876-4090-94EE-12AE41C6797D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
