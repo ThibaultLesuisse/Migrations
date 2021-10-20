@@ -7,10 +7,10 @@
 <h2>Add</h2>
 
 
-@using (Html.BeginForm("Add", "Product")) 
+@using (Html.BeginForm("Add", "Product"))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>ProductViewModel</h4>
         <hr />
@@ -30,7 +30,7 @@
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        @Html.Action("Categories", "Product")
         <div class="form-group">
             @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

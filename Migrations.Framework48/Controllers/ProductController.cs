@@ -6,6 +6,7 @@ using System.Runtime.Caching;
 using System.Web;
 using System.Globalization;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Migrations.Framework48.Controllers
 {
@@ -23,6 +24,7 @@ namespace Migrations.Framework48.Controllers
 
             //Cache
             MemoryCache.Default.Set("Products", products, new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(10) });
+            HttpContext.Cache.Insert("Products", products);
 
             //TempData
             TempData.Save(ControllerContext, TempDataProvider);
@@ -51,8 +53,17 @@ namespace Migrations.Framework48.Controllers
             return View(new OverviewViewModel { Products = products});
         }
 
+        [ChildActionOnly]
+        [ActionName("Categories")]
+        public ActionResult Categories()
+        {
+            var selectList = new SelectList(new[] { "Robots", "Drones", "Kitchen Appliances" });
+            return PartialView("Partials/_Categories", selectList);
+        }
+
         [HttpGet]
-        public ActionResult Add() => View();
+        [OutputCache(Duration = 30, Location = System.Web.UI.OutputCacheLocation.Server)]
+        public ActionResult Add() => View(new ProductViewModel());
 
         [HttpPost]
         public ActionResult Add(ProductViewModel vm) {
@@ -60,8 +71,8 @@ namespace Migrations.Framework48.Controllers
             if (!ModelState.IsValid)
                 return View(vm);
 
-            var randomizer = new Random(1000);
-            _productRepository.Add(new Domain.Product { Description = vm.Description, Id = randomizer.Next(0, int.MaxValue) });
+            var randomizer = new Random();
+            _productRepository.Add(new Domain.Product { Description = vm.Description, Id = randomizer.Next(0, int.MaxValue), Name = vm.Name, Price = vm.Price });
 
             return RedirectToAction("Index");
         }

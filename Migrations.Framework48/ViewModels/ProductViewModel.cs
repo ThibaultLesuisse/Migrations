@@ -12,6 +12,10 @@ namespace Migrations.Framework48.ViewModels
             Name = name ?? throw new ArgumentNullException(nameof(name));
             Price = price;
         }
+        public ProductViewModel()
+        {
+
+        }
 
         public int Id { get; set; }
         [Required]
